@@ -4,7 +4,7 @@ title		    = Minimization	; Título da simulação (informativo)
 
 ; Parâmetros que controlam o processo de minimização
 integrator	    = steep		; Algoritmo de minimização: steep (descida mais íngreme), cg (gradiente conjugado), l-bfgs (Broyden-Fletcher-Goldfarb-Shanno limitado)
-emtol		    = 10.0  	    ; Tolerância para a força máxima (kJ/mol/nm). A minimização para quando a força máxima for menor que este valor.  10.0 é um valor típico. Originalmente estava 1000.0, excessivamente alto.
+emtol		    = 1000.0  	    ; Tolerância para a força máxima (kJ/mol/nm). A minimização para quando a força máxima for menor que este valor. 
 emstep          = 0.01      ; Tamanho do passo de energia para o algoritmo de minimização.
 nsteps		    = 50000	  	; Número máximo de passos de minimização. A minimização para ao atingir este número, mesmo se não convergir.
 
