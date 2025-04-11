@@ -3,17 +3,17 @@
 title		    = Minimization	; Título da simulação (informativo)
 
 ; Parâmetros que controlam o processo de minimização
-integrator	    = 		; Algoritmo de minimização: steep (descida mais íngreme), cg (gradiente conjugado), l-bfgs (Broyden-Fletcher-Goldfarb-Shanno limitado)
-emtol		    =   	    ; Tolerância para a força máxima (kJ/mol/nm). A minimização para quando a força máxima for menor que este valor.  10.0 é um valor típico. Originalmente estava 1000.0, excessivamente alto.
-emstep          =       ; Tamanho do passo de energia para o algoritmo de minimização.
-nsteps		    = 	  	; Número máximo de passos de minimização. A minimização para ao atingir este número, mesmo se não convergir.
+integrator	    = 		; Algoritmo de minimização: steep (descida mais íngreme), cg (gradiente conjugado), l-bfgs (Broyden-Fletcher-Goldfarb-Shanno limitado) (String)
+emtol		    =   	    ; Tolerância para a força máxima (kJ/mol/nm). A minimização para quando a força máxima for menor que este valor. (Float)
+emstep          =       ; Tamanho do passo de energia para o algoritmo de minimização. (Float)
+nsteps		    = 	  	; Número máximo de passos de minimização. A minimização para ao atingir este número, mesmo se não convergir. (Inteiro)
 
 ; Parâmetros que controlam o cálculo das interações não ligadas
-nstlist		    = 		    ; Frequência de atualização da lista de vizinhos (a cada passo). 1 é apropriado para minimização.
-cutoff-scheme   =     ; Esquema de corte para a lista de vizinhos: Verlet, group. Verlet é geralmente recomendado.
-ns_type		    = 		; Método para construir a lista de vizinhos: grid, simple. Grid é mais eficiente para sistemas grandes.
-rlist		    = 		; Raio de corte para a lista de vizinhos (nm).
-coulombtype	    = 		; Tratamento das interações eletrostáticas de longo alcance: PME (Particle Mesh Ewald - recomendado), cutoff, reaction-field, ewald, pme-switch, pme-user, shift, user. O cutoff original não é adequado para a maioria dos sistemas.
-rcoulomb	    = 		; Raio de corte para interações eletrostáticas (nm).
-rvdw		    = 		; Raio de corte para interações de van der Waals (nm).
-pbc             =  		; Condições Periódicas de Contorno: xyz (todas as direções), no, xy.
+nstlist		    = 		    ; Frequência de atualização da lista de vizinhos (a cada passo). 1 é apropriado para minimização. (Inteiro)
+cutoff-scheme   =     ; Esquema de corte para a lista de vizinhos: Verlet, group. Verlet é geralmente recomendado. (String)
+ns_type		    = 		; Método para construir a lista de vizinhos: grid, simple. Grid é mais eficiente para sistemas grandes. (String)
+rlist		    = 		; Raio de corte para a lista de vizinhos (nm). (Float)
+coulombtype	    = 		; Tratamento das interações eletrostáticas de longo alcance: PME (Particle Mesh Ewald - recomendado), cutoff, reaction-field, ewald, pme-switch, pme-user, shift, user. O cutoff original não é adequado para a maioria dos sistemas. (String)
+rcoulomb	    = 		; Raio de corte para interações eletrostáticas (nm). (Float)
+rvdw		    = 		; Raio de corte para interações de van der Waals (nm). (Float)
+pbc             =  		; Condições Periódicas de Contorno: xyz (todas as direções), no, xy. (String)
