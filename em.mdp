@@ -1,0 +1,22 @@
+; Parâmetros para Minimização de Energia com GROMACS
+
+title		    = Minimization	; Título da simulação (String)
+; Parâmetros que controlam o processo de minimização
+integrator	    = steep		; Algoritmo de minimização: steep (descida mais íngreme), cg (gradiente conjugado), l-bfgs (Broyden-Fletcher-Goldfarb-Shanno limitado) (String)
+emtol		    = 1000.0  	    ; Tolerância para a força máxima (kJ/mol/nm). A minimização para quando a força máxima for menor que este valor (Float)
+emstep          = 0.01      ; Tamanho do passo de energia para o algoritmo de minimização (Float)
+nsteps		    = 50000	  	; Número máximo de passos de minimização. A minimização para ao atingir este número, mesmo se não convergir (Inteiro)
+
+; Parâmetros que controlam o cálculo das interações não ligadas
+nstlist		    = 1		        ; Frequência de atualização da lista de vizinhos (a cada passo). 1 é apropriado para minimização (Inteiro)
+cutoff-scheme   = Verlet    ; Esquema de corte para a lista de vizinhos: Verlet, group. Verlet é geralmente recomendado (String)
+ns_type		    = grid		    ; Método para construir a lista de vizinhos: grid, simple. Grid é mais eficiente para sistemas grandes (String)
+rlist		    = 1.2		    ; Raio de corte para a lista de vizinhos (nm) (Float)
+coulombtype	    = PME		    ; Tratamento das interações eletrostáticas de longo alcance: PME (Particle Mesh Ewald - recomendado), cutoff, reaction-field, ewald, pme-switch, pme-user, shift, user (String)
+rcoulomb	    = 1.2		    ; Raio de corte para interações eletrostáticas (nm) (Float)
+vdwtype         = cutoff       ; Tipo de interação de van der Waals: cutoff, Shift, Switch, PME (String)
+vdw-modifier    = force-switch ; Modificador para o potencial de van der Waals: Potential-shift, Force-switch, Potential-switch, None (String)
+rvdw-switch     = 1.0         ; Distância em que a função de chaveamento de van der Waals inicia (nm). Aplica-se apenas quando vdw-modifier = Potential-switch ou Force-switch (Float)
+rvdw		    = 1.2		    ; Raio de corte para interações de van der Waals (nm) (Float)
+pbc             = xyz 		    ; Condições Periódicas de Contorno: xyz (todas as direções), no, xy (String)
+DispCorr        = no          ; Correção de dispersão de longo alcance: yes, no (Bool)
