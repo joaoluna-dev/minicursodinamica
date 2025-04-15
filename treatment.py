@@ -31,8 +31,8 @@ if len(sys.argv) < 3:
     sys.exit(1)
 
 
-protein_code = sys.argv[2]
-input_file = sys.argv[3]
+protein_code = sys.argv[1]
+input_file = sys.argv[2]
 workspace = os.path.dirname(os.path.abspath(__file__))
 output_file = f"{protein_code}_treated.pdb"
 residues_removed = False
