@@ -1,0 +1,47 @@
+; Parâmetros para Equilibração NVT de Complexo Proteína-Ligante com Restrição de posições
+
+title                   = Protein-ligand complex NVT equilibration ; Título da simulação (String)
+define                  = -DPOSRES                               ; Define a diretiva de pré-processador -DPOSRES para ativar a restrição posicional na proteína e no ligante. Importante para equilibração. (String)
+; Parâmetros de Execução
+integrator              = md                                    ; Integrador de equações de movimento: md (leap-frog), sd (steepest descent), cg (conjugate gradient), etc. (String)
+nsteps                  = 50000                                 ; Número de passos de MD (Inteiro).  100 ps neste caso (nsteps * dt = tempo total).
+dt                      = 0.002                                 ; Passo de tempo (Float, ps). 2 fs neste caso.
+; Controle de Saída
+nstenergy               = 500                                   ; Frequência de escrita da energia no arquivo de energia (.edr) (Inteiro, passos). A cada 1 ps neste caso.
+nstlog                  = 500                                   ; Frequência de escrita no arquivo de log (.log) (Inteiro, passos). A cada 1 ps neste caso.
+nstxout-compressed      = 500                                   ; Frequência de escrita das coordenadas no arquivo de trajetória comprimido (.xtc) (Inteiro, passos). A cada 1 ps neste caso.
+; Parâmetros de Ligações
+continuation            = no                                    ; Indica se esta simulação é uma continuação de uma simulação anterior (Bool). 'no' para uma nova simulação, 'yes' para continuar.
+constraint_algorithm    = lincs                                 ; Algoritmo de restrição: lincs, shake. LINCS é geralmente mais estável e eficiente (String).
+constraints             = h-bonds                              ; Quais ligações restringir: h-bonds (apenas ligações com hidrogênio), all-bonds (todas as ligações), none (nenhuma) (String).
+lincs_iter              = 1                                     ; Número de iterações LINCS (Inteiro).  Maior valor = maior precisão, mas mais caro.
+lincs_order             = 4                                     ; Ordem da expansão LINCS (Inteiro).  Maior valor = maior precisão, mas mais caro.
+; Busca de Vizinhos e van der Waals
+cutoff-scheme           = Verlet                               ; Esquema de corte: Verlet, group (String).
+ns_type                 = grid                                  ; Método de busca de vizinhos: grid, simple (String).
+nstlist                 = 20                                    ; Frequência de atualização da lista de vizinhos (Inteiro, passos).  Menos relevante com Verlet.
+rlist                   = 1.2                                   ; Raio de corte para a lista de vizinhos (Float, nm).
+vdwtype                 = cutoff                               ; Tipo de interação de van der Waals: cutoff, Shift, Switch, PME (String).
+vdw-modifier            = force-switch                         ; Modificador para o potencial de van der Waals: Potential-shift, Force-switch, Potential-switch, None (String).
+rvdw-switch             = 1.0                                   ; Distância em que a função de chaveamento inicia (nm) (Float).
+rvdw                    = 1.2                                   ; Raio de corte de van der Waals (Float, nm).
+; Eletrostática
+coulombtype             = PME                                   ; Tratamento da eletrostática de longo alcance: PME, cutoff, reaction-field, etc. (String)
+rcoulomb                = 1.2                                   ; Raio de corte eletrostático (Float, nm).
+pme_order               = 4                                     ; Ordem de interpolação PME (Inteiro). 4 (cúbica) é comum.
+fourierspacing          = 0.16                                  ; Espaçamento da grade para a FFT (Float, nm).
+; Acoplamento de Temperatura
+tcoupl                  = V-rescale                            ; Algoritmo de termostato: V-rescale (recomendado), nose-hoover, berendsen, etc. (String).
+tc-grps                 = Protein JZ4 SOL CL                   ; Grupos para acoplamento de temperatura (String, separado por espaços).
+tau_t                   = 0.1   0.1                            ; Constante de tempo para acoplamento de temperatura (Float, ps), um para cada grupo de acoplamento definido
+ref_t                   = 300   300                            ; Temperatura de referência (Float, K), um para cada grupo de acoplamento definido
+; Acoplamento de Pressão
+pcoupl                  = no                                    ; Algoritmo de barostato: no, berendsen, Parrinello-Rahman, etc. (String). 'no' significa sem acoplamento de pressão (NVT).
+; Condições Periódicas de Contorno
+pbc                     = xyz                                   ; Condições de contorno: xyz, no, xy (String).
+; Correção de Dispersão
+DispCorr                = no                                    ; Correção de dispersão de longo alcance: yes, no (Bool).  Não usada com alguns campos de força.
+; Geração de Velocidades
+gen_vel                 = yes                                   ; Gerar velocidades iniciais: yes, no (Bool).
+gen_temp                = 300                                   ; Temperatura para a distribuição de Maxwell-Boltzmann (Float, K).
+gen_seed                = -1                                    ; Semente para o gerador de números aleatórios (Inteiro). -1 para uma semente aleatória.
