@@ -4,7 +4,7 @@ import sys
 #----------------------------------------------------------Values--------------------------------------------------------------#
 
 if len(sys.argv) < 3
-    print("Insufficient arguments. Usage: python separator.py ligand pdb_ID filename)
+    print("Insufficient arguments. Usage: python separator.py ligand pdb_ID filename")
     sys.exit(1)
 
 ligand = sys.argv[1]
