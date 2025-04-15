@@ -11,7 +11,7 @@ EN: File repository for the molecular dynamics mini-course, taught by members of
 
 ## ℹ️ Overview / Visão geral
 
-I'm a biomedical scientist, working in Data science, computational biology, and genomics. This tool is made for scientists who want to learn and apply their knowledge on molecular dynamics, facilitating their understanding. Sou Biomedico, trabalhando em ciência de dados, biologia computacional e genômica. Esta ferramenta é feita para cientistas que desejam aprender e aplicar seu conhecimento em dinâmica molecular, facilitando sua compreensão.
+I'm a biomedical science student, working in Data science, computational biology, and genomics. This tool is made for scientists who want to learn and apply their knowledge on molecular dynamics, facilitating their understanding. Sou um estudante de Biomedicina, trabalhando em ciência de dados, biologia computacional e genômica. Esta ferramenta é feita para cientistas que desejam aprender e aplicar seu conhecimento em dinâmica molecular, facilitando sua compreensão.
 
 ### ✍️ Authors / Autores
 
