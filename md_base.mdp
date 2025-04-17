@@ -1,0 +1,48 @@
+; Parâmetros para Simulação MD de Complexo Proteína-Ligante
+
+title                   = Protein-ligand complex MD simulation  ; Título da simulação (String)
+; Parâmetros de Execução
+integrator              =                                     ; Integrador de equações de movimento: md (leap-frog), sd, cg, etc. (String)
+nsteps                  =                                ; Número de passos da simulação (Inteiro). 10 ns neste caso (nsteps * dt).
+dt                      =                                  ; Tempo de cada passo (Float, ps). 2 fs neste caso.
+; Controle de Saída
+nstenergy               =                                   ; Frequência de escrita das energias no arquivo .edr (Inteiro, passos). A cada 10 ps.
+nstlog                  =                                   ; Frequência de escrita no arquivo de log (.log) (Inteiro, passos). A cada 10 ps.
+nstxout-compressed      =                                   ; Frequência de escrita das coordenadas no arquivo de trajetória comprimido (.xtc) (Inteiro, passos). A cada 10 ps.
+; Parâmetros de Ligações
+continuation            =                                    ; Continuação da simulação anterior (Bool). 'yes' porque está continuando da equilibração NPT.
+constraint_algorithm    =                                  ; Algoritmo de restrição: lincs, shake (String).
+constraints             =                               ; Restrições de ligações: h-bonds, all-bonds, none (String).
+lincs_iter              =                                      ; Iterações LINCS (Inteiro).
+lincs_order             =                                     ; Ordem LINCS (Inteiro).
+; Busca de Vizinhos e van der Waals
+cutoff-scheme           =                                ; Esquema de corte: Verlet, group (String).
+ns_type                 =                                   ; Método de busca de vizinhos: grid, simple (String).
+nstlist                 =                                     ; Frequência de atualização da lista de vizinhos (Inteiro, passos).
+rlist                   =                                    ; Raio de corte da lista de vizinhos (Float, nm).
+vdwtype                 =                                ; Tipo de interação de van der Waals: cutoff, Shift, Switch, PME (String).
+vdw-modifier            =                          ; Modificador de van der Waals: Potential-shift, Force-switch, Potential-switch, None (String).
+rvdw-switch             =                                    ; Início da função de chaveamento de van der Waals (Float, nm).
+rvdw                    =                                    ; Raio de corte de van der Waals (Float, nm).
+; Eletrostática
+coulombtype             =                                    ; Eletrostática de longo alcance: PME, cutoff, reaction-field, etc. (String).
+rcoulomb                =                                    ; Raio de corte eletrostático (Float, nm).
+pme_order               =                                     ; Ordem de interpolação PME (Inteiro).
+fourierspacing          =                                   ; Espaçamento da grade FFT (Float, nm).
+; Acoplamento de Temperatura
+tcoupl                  =                             ; Termostato: V-rescale, nose-hoover, etc. (String).
+tc-grps                 =            ; Grupos de acoplamento de temperatura (String).
+tau_t                   =                             ; Constantes de tempo para grupo de acoplamento de temperatura (Float, ps). (X  X)
+ref_t                   =                             ; Temperaturas de referência para cada grupo de acoplamento (Float, K). (X  X)
+; Acoplamento de Pressão
+pcoupl                  =                      ; Barostato: Parrinello-Rahman, Berendsen, etc. (String).
+pcoupltype              =                             ; Tipo de acoplamento de pressão: isotropic, semiisotropic, anisotropic, surface-tension (String)
+tau_p                   =                                    ; Constante de tempo de pressão (Float, ps).
+ref_p                   =                                    ; Pressão de referência (Float, bar).
+compressibility         =                                 ; Compressibilidade isotérmica (Float, bar^-1).
+; Condições Periódicas de Contorno
+pbc                     =                                    ; Condições de contorno: xyz, no, xy (String).
+; Correção de Dispersão
+DispCorr                =                                     ; Correção de dispersão: yes, no (Bool).
+; Geração de Velocidades
+gen_vel                 =                                     ; Geração de velocidades: yes, no (Bool). Desativada caso a simulação continue da etapa anterior.
