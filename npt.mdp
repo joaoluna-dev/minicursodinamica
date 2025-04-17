@@ -1,0 +1,51 @@
+; Parâmetros para Equilibração NPT de Complexo Proteína-Ligante com Restrição Posicional
+
+title                   = Protein-ligand complex NPT equilibration ; Título da simulação (String)
+define                  = -DPOSRES                               ; Define a diretiva -DPOSRES para ativar restrições posicionais (essencial para equilibração) (String)
+; Parâmetros de Execução
+integrator              = md                                    ; Integrador de equações de movimento: md (leap-frog), sd, cg, etc. (String)
+nsteps                  = 50000                                 ; Número de passos de MD (Inteiro). 100 ps neste caso (nsteps * dt).
+dt                      = 0.002                                 ; Passo de tempo (Float, ps). 2 fs neste caso.
+; Controle de Saída
+nstenergy               = 500                                   ; Frequência de escrita de energias no arquivo .edr (Inteiro, passos). A cada 1 ps.
+nstlog                  = 500                                   ; Frequência de escrita no arquivo de log (.log) (Inteiro, passos). A cada 1 ps.
+nstxout-compressed      = 500                                   ; Frequência de escrita das coordenadas no arquivo de trajetória comprimido (.xtc) (Inteiro, passos). A cada 1 ps.
+; Parâmetros de Ligações
+continuation            = yes                                   ; Continuação da simulação anterior (Bool). 'yes' para continuar a partir de uma simulação NVT.
+constraint_algorithm    = lincs                                 ; Algoritmo de restrição: lincs, shake (String).
+constraints             = h-bonds                              ; Restrições de ligações: h-bonds, all-bonds, none (String).
+lincs_iter              = 1                                     ; Iterações LINCS (Inteiro).
+lincs_order             = 4                                     ; Ordem LINCS (Inteiro).
+; Busca de Vizinhos e van der Waals
+cutoff-scheme           = Verlet                               ; Esquema de corte: Verlet, group (String).
+ns_type                 = grid                                  ; Método de busca de vizinhos: grid, simple (String).
+nstlist                 = 20                                    ; Frequência de atualização da lista de vizinhos (Inteiro, passos).
+rlist                   = 1.2                                   ; Raio de corte da lista de vizinhos (Float, nm).
+vdwtype                 = cutoff                               ; Tipo de interação de van der Waals: cutoff, Shift, Switch, PME (String).
+vdw-modifier            = force-switch                         ; Modificador de van der Waals: Potential-shift, Force-switch, Potential-switch, None (String).
+rvdw-switch             = 1.0                                   ; Início da função de chaveamento de van der Waals (Float, nm).
+rvdw                    = 1.2                                   ; Raio de corte de van der Waals (Float, nm).
+; Eletrostática
+coulombtype             = PME                                   ; Eletrostática de longo alcance: PME, cutoff, reaction-field, etc. (String).
+rcoulomb                = 1.2                                   ; Raio de corte eletrostático (Float, nm).
+pme_order               = 4                                     ; Ordem de interpolação PME (Inteiro).
+fourierspacing          = 0.16                                  ; Espaçamento da grade FFT (Float, nm).
+; Acoplamento de Temperatura
+tcoupl                  = V-rescale                            ; Termostato: V-rescale, nose-hoover, etc. (String)
+tc-grps                 = Protein_JZ4 Water_and_ions           ; Grupos de acoplamento de temperatura (String).
+tau_t                   = 0.1   0.1                            ; Constantes de tempo para acoplamento de temperatura (Float, ps).
+ref_t                   = 300   300                            ; Temperaturas de referência (Float, K).
+; Acoplamento de Pressão
+pcoupl                  = Berendsen                            ; Barostato: Berendsen, Parrinello-Rahman, etc. (String).
+pcoupltype              = isotropic                            ; Tipo de acoplamento de pressão: isotropic, semiisotropic, anisotropic, surface-tension (String).
+tau_p                   = 2.0                                   ; Constante de tempo de pressão (Float, ps).
+ref_p                   = 1.0                                   ; Pressão de referência (Float, bar).
+compressibility         = 4.5e-5                                ; Compressibilidade isotérmica (Float, bar^-1).
+refcoord_scaling        = com                                  ; Escala as coordenadas de referência: no, all, com (String)
+; Condições Periódicas de Contorno
+pbc                     = xyz                                   ; Condições de contorno: xyz, no, xy (String).
+; Correção de Dispersão
+DispCorr                = no                                    ; Correção de dispersão: yes, no (Bool).
+; Geração de Velocidades
+gen_vel                 = no                                    ; Geração de velocidades: yes, no (Bool).  Desativada após NVT.
+
