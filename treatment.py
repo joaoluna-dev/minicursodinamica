@@ -40,7 +40,7 @@ residues_removed = False
 #---------------------------------------Main Script--------------------------------------------#
 
 while True:
-    selection_residue = input("Do you want to remove anything from the file? (y/n): ")
+    selection_residue = input("Do you want to remove anything from the file? (y/n): ").lower()
     if selection_residue == "y":
         residues_name = input("Insert molecule or molecules name, separated by a comma: ")
         molecule = get_molecules_list(residues_name)
