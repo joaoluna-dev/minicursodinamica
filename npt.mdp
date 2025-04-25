@@ -34,7 +34,7 @@ fourierspacing          = 0.16                                  ; Espaçamento d
 tcoupl                  = V-rescale                            ; Termostato: V-rescale, nose-hoover, etc. (String)
 tc-grps                 = Protein_JZ4 Water_and_ions           ; Grupos de acoplamento de temperatura (String).
 tau_t                   = 0.1   0.1                            ; Constantes de tempo para acoplamento de temperatura (Float, ps).
-ref_t                   = 300   300                            ; Temperaturas de referência (Float, K).
+ref_t                   = 310   310                            ; Temperaturas de referência (Float, K).
 ; Acoplamento de Pressão
 pcoupl                  = Berendsen                            ; Barostato: Berendsen, Parrinello-Rahman, etc. (String).
 pcoupltype              = isotropic                            ; Tipo de acoplamento de pressão: isotropic, semiisotropic, anisotropic, surface-tension (String).
