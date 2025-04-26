@@ -33,8 +33,8 @@ fourierspacing          = 0.16                                  ; Espaçamento d
 ; Acoplamento de Temperatura
 tcoupl                  = V-rescale                            ; Algoritmo de termostato: V-rescale (recomendado), nose-hoover, berendsen, etc. (String).
 tc-grps                 = Protein JZ4 SOL CL                   ; Grupos para acoplamento de temperatura (String, separado por espaços).
-tau_t                   = 0.1   0.1                            ; Constante de tempo para acoplamento de temperatura (Float, ps), um para cada grupo de acoplamento definido
-ref_t                   = 310   310                            ; Temperatura de referência (Float, K), um para cada grupo de acoplamento definido
+tau_t                   = 0.1   0.1   0.1   0.1                 ; Constante de tempo para acoplamento de temperatura (Float, ps), um para cada grupo de acoplamento definido
+ref_t                   = 310   310   310   310                 ; Temperatura de referência (Float, K), um para cada grupo de acoplamento definido
 ; Acoplamento de Pressão
 pcoupl                  = no                                    ; Algoritmo de barostato: no, berendsen, Parrinello-Rahman, etc. (String). 'no' significa sem acoplamento de pressão (NVT).
 ; Condições Periódicas de Contorno
