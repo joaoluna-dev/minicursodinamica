@@ -32,11 +32,11 @@ pme_order               = 4                                     ; Ordem de inter
 fourierspacing          = 0.16                                  ; Espaçamento da grade FFT (Float, nm).
 ; Acoplamento de Temperatura
 tcoupl                  = V-rescale                            ; Termostato: V-rescale, nose-hoover, etc. (String)
-tc-grps                 = Protein_JZ4 Water_and_ions           ; Grupos de acoplamento de temperatura (String).
-tau_t                   = 0.1   0.1                            ; Constantes de tempo para acoplamento de temperatura (Float, ps).
-ref_t                   = 310   310                            ; Temperaturas de referência (Float, K).
+tc-grps                 = Protein_JZ4 SOL CLA                  ; Grupos de acoplamento de temperatura (String).
+tau_t                   = 0.1   0.1   0.1                      ; Constantes de tempo para acoplamento de temperatura (Float, ps).
+ref_t                   = 310   310   310                      ; Temperaturas de referência (Float, K).
 ; Acoplamento de Pressão
-pcoupl                  = Berendsen                            ; Barostato: Berendsen, Parrinello-Rahman, etc. (String).
+pcoupl                  = C-rescale                            ; Barostato: Berendsen, Parrinello-Rahman, etc. (String).
 pcoupltype              = isotropic                            ; Tipo de acoplamento de pressão: isotropic, semiisotropic, anisotropic, surface-tension (String).
 tau_p                   = 2.0                                   ; Constante de tempo de pressão (Float, ps).
 ref_p                   = 1.0                                   ; Pressão de referência (Float, bar).
