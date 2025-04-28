@@ -29,5 +29,4 @@ try:
     get_pdb(pdb_file, protein_code)
     print(f"{protein_code}.pdb file downloaded")
 except Exception as e:
-    log_write(f"{e}", "erro")
     print(f"An unexpected error has ocurred: {e} \n ")
